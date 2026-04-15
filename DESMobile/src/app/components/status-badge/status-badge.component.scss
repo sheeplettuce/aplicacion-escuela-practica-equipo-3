@@ -1,0 +1,32 @@
+.pill {
+  flex-shrink: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 15px;
+  padding: 1px 8px;
+  font-size: max(11px, 0.75rem);
+  font-weight: bold;
+}
+
+.pill--pending {
+  background: #fef3c7;
+  border: 1px solid #fef3c7;
+  color: #92400e;
+}
+
+.pill--ready {
+  background: #d1fae5;
+  border: 1px solid #d1fae5;
+  color: #275f46;
+  padding: 1px 13px;
+}
+
+.pill--accent {
+  background: #a93833;
+  border-radius: 13px;
+  border: none;
+  color: #ffffff;
+  padding: 3px 15px;
+  font-size: max(10px, 0.625rem);
+}

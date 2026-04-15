@@ -1,0 +1,21 @@
+<div class="input-container">
+  <input 
+    #inputElement
+    [type]="inputType" 
+    [placeholder]="label"
+    class="custom-input"
+    [class.with-icon]="isPasswordToggle"
+    (keydown)="onKeyDown($event)"
+  >
+  
+  <button 
+    *ngIf="isPasswordToggle" 
+    type="button" 
+    class="toggle-btn" 
+    (click)="togglePassword()"
+    tabindex="-1">
+    <span class="material-icons">
+      {{ hide ? 'visibility_off' : 'visibility' }}
+    </span>
+  </button>
+</div>

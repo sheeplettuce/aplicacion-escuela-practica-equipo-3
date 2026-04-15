@@ -1,0 +1,18 @@
+<div
+  class="row"
+  [class.row--spacing-list]="spacing === 'list'"
+  [class.row--spacing-section]="spacing === 'section-gap'"
+  [class.row--spacing-flush]="spacing === 'flush'"
+>
+  <div class="main">
+    <span class="code">{{ code }}</span>
+    <span class="sub">{{ subtitle }}</span>
+  </div>
+  <div class="grow"></div>
+  @if (status === 'pending') {
+    <app-status-badge class="badge" variant="pending" label="Pendiente" />
+  } @else {
+    <app-status-badge class="badge" variant="ready" label="Listo" />
+  }
+  <img [src]="trailingIconSrc" alt="" class="chevron" />
+</div>

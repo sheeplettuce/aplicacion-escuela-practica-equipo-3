@@ -1,0 +1,124 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 16px;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFCF8;
+  width: 100%;
+  max-width: 480px;
+  padding: 48px 40px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.logo {
+  width: clamp(100px, 25vw, 154px);
+  height: auto;
+  margin-bottom: 18px;
+}
+
+.title {
+  color: #4A2C1A;
+  font-size: clamp(22px, 5vw, 32px);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #7A5C42;
+  font-size: clamp(16px, 3.5vw, 20px);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+app-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+app-button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Overlay de alerta */
+.alerta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: fadeIn 0.2s ease;
+}
+
+.alerta-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 32px;
+  border-radius: 16px;
+  width: 80%;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.alerta-error {
+  background-color: #FFF5F5;
+  border: 1px solid #FECACA;
+  color: #991B1B;
+}
+
+.alerta-success {
+  background-color: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #166534;
+}
+
+.alerta-icono {
+  font-size: 40px;
+}
+
+.alerta-texto {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.alerta-btn {
+  margin-top: 4px;
+  padding: 8px 28px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4A2C1A;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.alerta-btn:hover {
+  background-color: #6B3E26;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

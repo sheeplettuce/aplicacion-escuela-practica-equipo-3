@@ -1,0 +1,204 @@
+:host {
+  display: block;
+}
+
+.pagina-cocina {
+  background-color: #f5ede0;
+  min-height: 100vh;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-content: start;
+}
+
+/* ── Tarjeta ── */
+.pedido-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 4px solid #d4a373; /* acento por defecto */
+
+  &.pendiente {
+    border-top-color: #e07a5f;
+  }
+  &.listo {
+    border-top-color: #6db57e;
+  }
+  &.entregado {
+    border-top-color: #adb5bd;
+    opacity: 0.6;
+  }
+}
+
+/* ── Header de tarjeta ── */
+.pedido-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .mesa {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #5c3d2e;
+    flex: 1;
+  }
+
+  .numero {
+    font-size: 0.85rem;
+    color: #999;
+  }
+}
+
+/* ── Badges ── */
+.badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+  white-space: nowrap;
+
+  &.pendiente {
+    background: #fde8e4;
+    color: #c0392b;
+    border: 1px solid #e07a5f;
+  }
+  &.listo {
+    background: #e6f4ea;
+    color: #2d6a4f;
+    border: 1px solid #6db57e;
+  }
+  &.entregado {
+    background: #f0f0f0;
+    color: #666;
+    border: 1px solid #ccc;
+  }
+}
+
+/* ── Lista de items ── */
+.pedido-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+
+  li {
+    font-size: 0.9rem;
+    color: #3d2b1f;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.item-qty {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  background: #f5ede0;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #7c4f2f;
+}
+
+/* ── Footer ── */
+.pedido-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #f0e0d0;
+  flex-wrap: wrap;
+
+  .hora {
+    font-size: 0.78rem;
+    color: #aaa;
+  }
+
+  .total {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #5c3d2e;
+    margin-left: auto;
+  }
+}
+
+/* ── Botones ── */
+.btn-lista {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #a93226;
+  }
+}
+
+.btn-entregado {
+  background: #6db57e;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #52996a;
+  }
+}
+
+/* ── Estados vacío / error / loading ── */
+.loading,
+.error,
+.texto-vacio {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #7c4f2f;
+  font-size: 1rem;
+}
+
+.error {
+  color: #c0392b;
+}
+
+.item-nota {
+  font-size: 0.85rem;
+  color: #555;
+  margin-left: 1.5rem;
+  font-style: italic;
+}
+
+.actualizado {
+  border-left: 5px solid orange;
+  background-color: #fff8e1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .pagina-cocina {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}

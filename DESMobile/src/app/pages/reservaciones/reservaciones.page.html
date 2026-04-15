@@ -1,0 +1,19 @@
+<app-page-header-cream title="Reservaciones"
+  imageSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/3NWzJkfAGi/7o7i60ed_expires_30_days.png" />
+
+<ion-content [fullscreen]="true" class="reservaciones-page-content">
+  <app-page-body scrollVariant="reservaciones">
+    <app-section-intro text="Se muestran las reservaciones próximas en esta semana" />
+
+    <app-reservation-row *ngFor="let reservation of reservations" variant="inline-meta" spacing="tight"
+      [datePrimary]="getMes(reservation.Fecha)" [dateSecondary]="getDia(reservation.Fecha)"
+      [title]="reservation.NombreCliente" [metaLine1]="reservation.NoPersonas + ' personas'"
+      [metaLine2]="reservation.Telefono"
+      actionIconSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/3NWzJkfAGi/vjktmwvw_expires_30_days.png" />
+
+  </app-page-body>
+  <app-bottom-nav
+    pedidosIconSrc="assets/NewPedido.png"
+    reservacionesIconSrc="assets/Reserva.png"
+     />
+</ion-content>

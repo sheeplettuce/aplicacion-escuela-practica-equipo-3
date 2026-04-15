@@ -1,0 +1,9 @@
+<button
+  type="button"
+  class="tile"
+  [ngClass]="'tile--' + kind"
+  (click)="onClick()"
+>
+  <img [src]="imageSrc" [alt]="imageAlt" [ngClass]="'img--' + kind" />
+  <span class="label">{{ label }}</span>
+</button>

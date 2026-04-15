@@ -1,0 +1,55 @@
+<app-header title="Cocina"></app-header>
+
+<main class="pagina-cocina">
+  <ng-container *ngIf="!isLoading && !errorMessage">
+
+    <ng-container *ngIf="pedidos.length > 0; else emptyTemplate">
+
+      <section *ngFor="let pedido of pedidos"
+               class="pedido-card"
+               [ngClass]="pedido.estado.toLowerCase()">
+
+        <div class="pedido-header">
+          <span class="mesa">{{ pedido.mesa && pedido.mesa !== 0 ? ('Mesa ' + pedido.mesa) : 'Mostrador' }}</span>
+          <span class="numero">#{{ pedido.numero }}</span>
+          <span class="badge" [ngClass]="pedido.estado.toLowerCase()">
+            {{ pedido.estado }}
+          </span>
+        </div>
+
+        <ul class="pedido-items">
+          <li *ngFor="let item of pedido.items" class="item">
+
+            <div class="item-main">
+              <span class="item-qty">{{ item.cantidad }}</span>
+              <span class="item-name">{{ item.nombre }}</span>
+            </div>
+
+            <div *ngIf="item.nota && item.nota.trim() !== ''" class="item-nota">
+              📝 {{ item.nota }}
+            </div>
+
+          </li>
+        </ul>
+
+        <div class="pedido-footer">
+          <span class="hora">{{ pedido.hora }}</span>
+          <span class="total">Total: ${{ pedido.total }}</span>
+
+          <button *ngIf="pedido.estado === 'Pendiente' || pedido.estado === 'Actualizado'"
+                  (click)="marcarLista(pedido)"
+                  class="btn-lista">
+            Marcar como Lista
+          </button>
+        </div>
+
+      </section>
+
+    </ng-container>
+
+    <ng-template #emptyTemplate>
+      <p class="texto-vacio">No hay pedidos activos.</p>
+    </ng-template>
+
+  </ng-container>
+</main>

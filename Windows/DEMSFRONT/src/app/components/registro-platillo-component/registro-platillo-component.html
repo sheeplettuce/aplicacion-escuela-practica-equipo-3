@@ -1,0 +1,88 @@
+<app-header title="Menú"></app-header>
+
+<main class="pagina-registro">
+  <div class="formulario-card">
+
+    <h1 class="form-titulo">
+      {{ esEdicion ? 'Editar platillo' : 'Registro platillo' }}
+    </h1>
+
+    <label class="form-label">Nombre</label>
+    <input
+      type="text"
+      placeholder="Platillo Mixto"
+      class="form-input"
+      [(ngModel)]="platillo.nombre"
+      maxlength="45"
+    />
+
+    <div class="form-fila-labels">
+      <span class="form-label">Categoría</span>
+      <span class="form-label">Descripción</span>
+      <span class="form-label">Precio (MXN)</span>
+    </div>
+
+    <div class="form-fila-inputs">
+
+      <!-- Dropdown Categoría -->
+      <div class="dropdown-contenedor">
+        <button class="dropdown-btn" (click)="toggleDropdown($event)">
+          <span>{{ categoriaSeleccionada?.Nombre || 'Selecciona categoría' }}</span>
+          <span class="dropdown-flecha">▼</span>
+        </button>
+        <div class="dropdown-menu" *ngIf="dropdownAbierto">
+          <div
+            class="dropdown-opcion"
+            *ngFor="let cat of categorias"
+            (click)="seleccionarCategoria(cat)">
+            {{ cat.Nombre }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Descripción -->
+      <textarea
+        placeholder="Platillo perfecto si se te antoja todo..."
+        class="form-textarea"
+        [(ngModel)]="platillo.descripcion"
+        maxlength="45">
+      </textarea>
+
+      <!-- Precio -->
+      <input
+        type="number"
+        placeholder="$ 95"
+        class="form-input-precio"
+        [(ngModel)]="platillo.precio"
+      />
+
+    </div>
+
+    <!-- Subir imagen — solo en registro nuevo -->
+    <ng-container *ngIf="!esEdicion">
+      <label class="form-label">Subir imagen</label>
+      <div class="upload-contenedor" (click)="imagenInput.click()">
+        <input
+          #imagenInput
+          type="file"
+          accept="image/*"
+          class="upload-input-oculto"
+          (change)="onImagenSeleccionada($event)"
+        />
+        <div class="upload-area" *ngIf="!imagenPreview">
+          <span class="upload-icono">📁</span>
+          <span class="upload-texto">Haz clic para seleccionar una imagen</span>
+        </div>
+        <img *ngIf="imagenPreview" [src]="imagenPreview" class="upload-preview" alt="Preview" />
+      </div>
+    </ng-container>
+
+    <div class="form-acciones">
+      <button class="btn-guardar" (click)="guardar()">
+        {{ esEdicion ? 'Guardar cambio' : 'Guardar' }}
+      </button>
+      <button class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+    </div>
+
+  </div>
+</main>

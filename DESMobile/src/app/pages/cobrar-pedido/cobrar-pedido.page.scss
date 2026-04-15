@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.cobrar-pedido-page-content {
+  --background: #ffffff;
+  --padding-bottom: calc(94px + env(safe-area-inset-bottom));
+}
+
+.page-column {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  padding: 0 var(--page-pad, 16px) clamp(32px, 10vh, 64px);
+  box-sizing: border-box;
+}

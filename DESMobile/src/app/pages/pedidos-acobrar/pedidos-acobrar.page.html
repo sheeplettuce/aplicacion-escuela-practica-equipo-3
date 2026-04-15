@@ -1,0 +1,29 @@
+<app-page-header-cream
+  title="Cobrar pedido"
+  imageSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/S4topjr39u/kv8d5ngj_expires_30_days.png"
+/>
+
+<ion-content [fullscreen]="true" class="pedidos-acobrar-page-content">
+  <app-page-body>
+    <div class="page-stack">
+      <section class="block">
+        <span class="hint">Seleccionar un pedido para cobrar</span>
+        
+        <app-pedido-cobro-row
+          *ngFor="let pedido of pedidosE"
+          [code]="pedido.folio"
+          [location]="pedido.mesa ?? ''"
+          [dishes]="pedido.items.length"
+          [price]="getTotal(pedido)"
+          iconSrc="assets/flecha.png"
+          (click)="cobrarPedido(pedido)"
+        />
+      </section>
+    </div>
+  </app-page-body>
+</ion-content>
+
+<app-bottom-nav
+  pedidosIconSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/S4topjr39u/9jhveudp_expires_30_days.png"
+  reservacionesIconSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/S4topjr39u/qj6sj88h_expires_30_days.png"
+/>

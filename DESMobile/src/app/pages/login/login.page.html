@@ -1,0 +1,22 @@
+<app-auth-layout>
+  <div class="wrapper">
+    <div class="card">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <img src="assets/DinnerIcon.png" class="logo" />
+
+      <span class="title">DESM!</span>
+
+      <span class="subtitle">
+        Dinner Environment Management <br />System </span>
+
+      <app-input #inputUsuario label="Usuario" type="text">
+      </app-input>
+
+      <app-input #inputContraseña label="Contraseña" [isPasswordToggle]="true">
+      </app-input>
+
+      <app-button [text]="'Ingresar'" (click)="onLogin()"></app-button>
+
+    </div>
+  </div>
+</app-auth-layout>

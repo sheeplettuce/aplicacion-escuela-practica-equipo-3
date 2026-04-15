@@ -1,0 +1,16 @@
+.intro {
+  margin: 0;
+  color: #7a5c42;
+  font-size: clamp(0.75rem, 3.2vw, 0.8125rem);
+  line-height: 1.4;
+}
+
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 1px;
+  margin-bottom: clamp(20px, 5vw, 31px);
+  padding-left: clamp(12px, 4vw, 16px);
+  padding-right: var(--page-pad, 12px);
+}

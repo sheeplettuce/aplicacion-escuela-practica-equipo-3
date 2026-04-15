@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  border-radius: 16px;
+  border: 1px solid #ede0ccc4;
+  padding: 13px clamp(12px, 4vw, 18px);
+  margin-bottom: clamp(12px, 3vw, 28px);
+  margin-left: var(--page-pad, 21px);
+  margin-right: var(--page-pad, 21px);
+  gap: 5px;
+  box-shadow: 1px 4px 4px #00000040;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.card--last {
+  margin-bottom: 1px;
+}
+
+.row {
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.desk {
+  color: #4a2c1a;
+  font-size: clamp(0.875rem, 4vw, 1.0625rem);
+  word-break: break-word;
+}
+
+.amount {
+  color: #8b1a1a;
+  font-size: clamp(0.875rem, 4vw, 1.125rem);
+  font-weight: bold;
+}
+
+.detail {
+  color: #946b42;
+  font-size: max(11px, 0.75rem);
+}

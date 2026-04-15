@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.enviar-ticket-page-content {
+  --background: #ffffff;
+}
+
+.page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  min-height: 100%;
+}
+
+.header-row {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  color: #7a5c42;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.description-row {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  color: #4a2c1a;
+  font-size: 14px;
+  text-align: center;
+}
+
+.view4 {
+  width: 100%;
+  background: #F5EFE6;
+  border-radius: 16px;
+  border: 1px solid #F2C67B75;
+  padding: 12px;
+  box-shadow: 1px 4px 4px rgba(0,0,0,0.25);
+}
+
+.email-input-item {
+  width: 100%;
+}
+
+.actions-row {
+  display: flex;
+  gap: 12px;
+}
+
+.cancel-button,
+.send-button {
+  flex: 1;
+}
+
+.send-button {
+  --background: #8B1A10;
+  --color: #fff;
+}

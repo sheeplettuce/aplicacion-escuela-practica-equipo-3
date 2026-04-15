@@ -1,0 +1,47 @@
+<app-header title="Trabajadores"></app-header>
+
+<main class="pagina-trabajadores">
+
+  <button class="btn-nuevo" (click)="irARegistro()">+ Nuevo usuario</button>
+
+  <div class="contadores">
+    <div class="contador-card">
+      <span class="contador-num">{{ contarPorRol('Administrador') }}</span>
+      <span class="contador-label">Administrador</span>
+    </div>
+    <div class="contador-card">
+      <span class="contador-num">{{ contarPorRol('Mesero') }}</span>
+      <span class="contador-label">Meseros</span>
+    </div>
+    <div class="contador-card">
+      <span class="contador-num">{{ contarPorRol('Cocina') }}</span>
+      <span class="contador-label">Cocina</span>
+    </div>
+  </div>
+
+  <div class="tabla-contenedor">
+    <div *ngIf="isLoading">Cargando...</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+    <table *ngIf="!isLoading && !errorMessage" class="tabla">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of trabajadores">
+          <td>{{ t.Nombre }}</td>
+          <td>{{ getRolNombre(t) }}</td>
+          <td class="acciones-td">
+            <button class="btn-editar" (click)="irAEditar(t)">Editar</button>
+            <button class="btn-eliminar" (click)="eliminar(t)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>

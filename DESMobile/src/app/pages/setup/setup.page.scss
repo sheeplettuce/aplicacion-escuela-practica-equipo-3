@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+ion-content.setup-page-content {
+  --padding-start: clamp(16px, 5vw, 24px);
+  --padding-end: clamp(16px, 5vw, 24px);
+  --padding-top: clamp(16px, 5vw, 32px);
+  --padding-bottom: clamp(16px, 5vw, 32px);
+}
+
+ion-button {  width: 100%;
+  max-width: min(100%, 400px);
+  margin-inline: auto;
+  display: block;
+}

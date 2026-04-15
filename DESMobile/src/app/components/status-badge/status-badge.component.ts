@@ -1,0 +1,14 @@
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-status-badge',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './status-badge.component.html',
+  styleUrls: ['./status-badge.component.scss'],
+})
+export class StatusBadgeComponent {
+  @Input() variant: 'pending' | 'ready' | 'accent' = 'pending';
+  @Input({ required: true }) label!: string;
+}

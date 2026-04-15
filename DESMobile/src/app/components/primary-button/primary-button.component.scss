@@ -1,0 +1,53 @@
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #8b1a10;
+  border-radius: 8px;
+  border: 1px solid #ffffff;
+  text-align: left;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+}
+
+.btn--inset {
+  padding: 7px clamp(16px, 5vw, 29px);
+  margin-bottom: clamp(12px, 2vw, 19px);
+  margin-right: clamp(8px, 3vw, 14px);
+  margin-left: var(--page-pad, 15px);
+  width: calc(100% - 2 * var(--page-pad, 15px));
+  max-width: 100%;
+}
+
+.btn--centered {
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: clamp(24px, 6vw, 39px);
+}
+
+.btn--pad-comfortable {
+  padding-block: 7px;
+}
+
+.btn--centered.btn--pad-comfortable {
+  padding: 12px clamp(16px, 5vw, 56px);
+}
+
+.btn--centered.btn--pad-wide {
+  padding: 12px clamp(16px, 5vw, 56px);
+}
+
+.btn--centered.btn--pad-compact {
+  padding: 12px clamp(12px, 4vw, 14px);
+}
+
+.btn--text-title .label {
+  color: #ffffff;
+  font-size: clamp(1.125rem, 5vw, 1.5625rem);
+}
+
+.btn--text-body .label {
+  color: #ffffff;
+  font-size: clamp(0.9rem, 3.8vw, 1.125rem);
+}

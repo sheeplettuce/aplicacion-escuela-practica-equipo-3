@@ -1,0 +1,55 @@
+<app-header title="Inicio"></app-header>
+
+<main class="pagina-inicio">
+
+  <!-- Saludo -->
+  <section class="saludo">
+    <h1 class="saludo-titulo">Buenas tardes, {{ nombreUsuario }}</h1>
+    <p class="saludo-subtitulo">¿A qué módulo deseas acceder hoy?</p>
+  </section>
+
+  <!-- Fila 1 -->
+  <div class="modulos-grid">
+    <app-modulo-card
+      icono="assets/cocina.png"
+      nombre="Cocina"
+      descripcion="Ver pedidos activos"
+      ruta="/cocina">
+    </app-modulo-card>
+
+    <app-modulo-card
+      icono="assets/reservacion.png"
+      nombre="Reservaciones"
+      descripcion="Gestionar reservas"
+      ruta="/reservaciones">
+    </app-modulo-card>
+
+    <app-modulo-card
+      icono="assets/menu.png"
+      nombre="Menú"
+      descripcion="Muestra los platillos"
+      ruta="/menu">
+    </app-modulo-card>
+  </div>
+
+  <!-- Fila 2 -->
+  <div class="modulos-grid">
+    <app-modulo-card
+      icono="assets/reporte.png"
+      nombre="Reportes"
+      descripcion="Ventas y Estadísticas"
+      ruta="/reportes">
+    </app-modulo-card>
+
+    <app-modulo-card
+      icono="assets/trabajadores.png"
+      nombre="Trabajadores"
+      descripcion="Personal registrado"
+      ruta="/trabajadores">
+    </app-modulo-card>
+
+    <!-- Espacio vacío para mantener alineación del grid -->
+    <div class="modulo-vacio"></div>
+  </div>
+
+</main>

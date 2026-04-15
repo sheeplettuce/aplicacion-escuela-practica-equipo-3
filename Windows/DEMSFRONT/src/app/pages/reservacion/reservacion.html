@@ -1,0 +1,118 @@
+<app-header title="Reservaciones"></app-header>
+<main class="pagina-reservaciones">
+
+
+    <!-- Cards próximas ────────────────────────────────── -->
+    <p class="seccion-label">Próximas reservaciones</p>
+    <div class="proximas-grid">
+      <div class="card-proxima" *ngFor="let r of proximas">
+        <span class="card-fecha">{{ r.Fecha | date:'dd MMM' }}</span>
+        <p class="card-nombre">{{ r.NombreCliente }}</p>
+        <div class="card-info">
+          <span class="icon-personas">Reservación para: {{ r.NoPersonas }} personas</span>
+          <span class="icon-tel">Número contacto: {{ r.Telefono }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla ─────────────────────────────────────────── -->
+    <div class="tabla-wrapper">
+      <div class="tabla-header">
+        <p class="tabla-titulo">Reservaciones actuales</p>
+        <button class="btn-nueva" (click)="abrirModal()">+ Nueva reservación</button>
+      </div>
+
+      <p *ngIf="reservaciones.length === 0" class="texto-vacio">
+        No hay reservaciones registradas.
+      </p>
+
+      <table *ngIf="reservaciones.length > 0">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Fecha</th>
+            <th>Personas</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of reservaciones">
+            <td>{{ r.NombreCliente }}</td>
+            <td>{{ r.Correo }}</td>
+            <td>{{ r.Telefono }}</td>
+            <td>{{ r.Fecha | date:'yyyy-MM-dd' }}</td>
+            <td>{{ r.NoPersonas }}</td>
+            <td>
+              <span class="badge" [ngClass]="r.Estado?.toLowerCase()">
+                {{ r.Estado }}
+              </span>
+            </td>
+            <td class="acciones">
+              <button class="btn-editar"   (click)="editar(r)">Editar</button>
+              <button class="btn-eliminar" (click)="eliminar(r)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+  <!-- Modal ─────────────────────────────────────────── -->
+  <div class="modal-overlay" *ngIf="mostrarModal" (click)="cerrarModal()">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <h2 class="modal-titulo">
+        {{ modoEdicion ? 'Editar' : 'Nueva' }} reservación
+      </h2>
+
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text"   [(ngModel)]="form.NombreCliente" placeholder="Nombre completo" />
+      </div>
+      <div class="form-group">
+        <label>Correo</label>
+        <input type="email"  [(ngModel)]="form.Correo"        placeholder="correo@ejemplo.com" />
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="text"   [(ngModel)]="form.Telefono"      placeholder="449-000-0000" />
+      </div>
+      <div class="form-group">
+        <label>Fecha</label>
+        <input type="date"   [(ngModel)]="form.Fecha" />
+      </div>
+      <div class="form-group">
+        <label>Personas</label>
+        <input type="number" [(ngModel)]="form.NoPersonas" min="1" />
+      </div>
+      <div class="form-group" *ngIf="modoEdicion">
+        <label>Estado</label>
+        <select [(ngModel)]="form.Estado">
+          <option value="Activa">Activa</option>
+          <option value="Cancelada">Cancelada</option>
+          <option value="Completada">Completada</option>
+        </select>
+      </div>
+
+      <div class="modal-acciones">
+        <button class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
+
+        <!-- Botón dinámico -->
+        <button class="btn-guardar" (click)="guardar()" [disabled]="isSaving">
+          <ng-container *ngIf="!isSaving; else guardando">
+          Guardar
+         </ng-container>
+         <ng-template #guardando>
+          Guardando...
+          <span class="spinner"></span>
+       </ng-template>
+       </button>
+    </div>
+
+    </div>
+  </div>
+
+</main>

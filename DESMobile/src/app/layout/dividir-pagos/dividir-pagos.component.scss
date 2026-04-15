@@ -1,0 +1,112 @@
+:host {
+  display: block;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.dividir-pagos-page-content {
+  --background: #ffffff;
+}
+
+.page-stack {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 16px 0 32px;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  margin-bottom: 16px;
+}
+
+.title {
+  color: #7a5c42;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fffcf8e3;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin: 0 12px 12px;
+}
+
+.total-label,
+.total-value {
+  color: #4a2c1a;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.payment-panel {
+  background: #fafafa;
+  border-radius: 16px;
+  border: 1px solid #ede0ccc4;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, .25);
+  padding: 16px;
+  margin: 0 12px 16px;
+}
+
+.payment-entry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.payment-method-item,
+.payment-amount-item {
+  flex: 1;
+}
+
+.payment-amount-item ion-input {
+  text-align: right;
+}
+
+.add-payment {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #fffcf8;
+  border: 1px solid #e6c69f;
+  color: #000;
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.add-payment-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.remaining {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: #fff4f3;
+  border-radius: 12px;
+  border: 1px solid #d9c4a0;
+  color: #b22222;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.confirm-button {
+  margin: 0 12px;
+}

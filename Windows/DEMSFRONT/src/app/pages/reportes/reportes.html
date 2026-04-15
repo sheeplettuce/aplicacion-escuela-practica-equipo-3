@@ -1,0 +1,149 @@
+<app-header title="Reportes y Análisis"></app-header>
+
+<main class="pagina-reportes">
+
+  <div class="tabs-contenedor">
+    <button class="tab-btn" [class.activo]="tabActiva === 'ventas'" (click)="cambiarTab('ventas')">
+      Ventas diarias
+    </button>
+    <button class="tab-btn" [class.activo]="tabActiva === 'historial'" (click)="cambiarTab('historial')">
+      Historial de cambios
+    </button>
+  </div>
+
+  <!-- VENTAS DIARIAS -->
+  <ng-container *ngIf="tabActiva === 'ventas'">
+
+    <div class="filtros-card">
+      <div class="filtros-titulo">
+        <span>🔍</span>
+        <strong>Filtrar ventas</strong>
+      </div>
+      <div class="filtros-fila">
+        <div class="filtro-grupo">
+          <label>Desde</label>
+          <input type="date" class="filtro-input" [(ngModel)]="desde" />
+        </div>
+        <div class="filtro-grupo">
+          <label>Hasta</label>
+          <input type="date" class="filtro-input" [(ngModel)]="hasta" />
+        </div>
+        <button class="btn-aplicar" (click)="aplicarFiltro()">Aplicar</button>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading" style="text-align:center; padding: 40px; color: #8B5C42;">Cargando...</div>
+    <div *ngIf="errorMessage" style="text-align:center; padding: 20px; color: red;">{{ errorMessage }}</div>
+
+    <ng-container *ngIf="!isLoading && !errorMessage">
+
+      <div class="resumen-cards">
+        <div class="resumen-card destacado">
+          <span class="resumen-label">TOTAL VENTAS</span>
+          <span class="resumen-valor">${{ resumen.totalVentas | number }}</span>
+          <span class="resumen-sub">{{ resumen.cantidadVentas }} ventas registradas</span>
+        </div>
+        <div class="resumen-card">
+          <span class="resumen-label">TICKET PROMEDIO</span>
+          <span class="resumen-valor">${{ resumen.ticketPromedio | number }}</span>
+          <span class="resumen-sub">Por venta</span>
+        </div>
+        <div class="resumen-card">
+          <span class="resumen-label">MÉTODO PRINCIPAL</span>
+          <span class="resumen-valor">{{ resumen.metodoPrincipal }}</span>
+          <span class="resumen-sub">{{ resumen.porcentajeMetodo }}% de ventas</span>
+        </div>
+      </div>
+
+      <div class="tabla-card">
+        <h3 class="tabla-titulo">Historial de ventas</h3>
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>ID Pedido</th>
+              <th>Fecha</th>
+              <th>Mesero</th>
+              <th>Método</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let v of resumen.historialVentas">
+              <td class="folio">#{{ v.idPedido }}</td>
+              <td>{{ v.Fecha | date:'yyyy-MM-dd' }}</td>
+              <td>{{ v.mesero }}</td>
+              <td>{{ v.metodo }}</td>
+              <td class="total">${{ v.total }}</td>
+            </tr>
+            <tr *ngIf="resumen.historialVentas.length === 0">
+              <td colspan="5" style="text-align:center; color:#8B5C42;">No hay ventas en este período</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="productos-card">
+        <h3 class="productos-titulo">Productos más vendidos</h3>
+        <div class="producto-item" *ngFor="let p of topPlatillosConPorcentaje">
+          <div class="producto-fila">
+            <span class="producto-pos">{{ p.posicion }}</span>
+            <span class="producto-nombre">{{ p.nombre }}</span>
+            <span class="producto-cantidad">{{ p.cantidad }}</span>
+          </div>
+          <div class="barra-contenedor">
+            <div class="barra" [style.width.%]="p.porcentaje"></div>
+          </div>
+        </div>
+        <p *ngIf="resumen.topPlatillos.length === 0" style="color:#8B5C42;">No hay datos en este período</p>
+      </div>
+
+    </ng-container>
+
+  </ng-container>
+
+  <!-- HISTORIAL DE CAMBIOS -->
+  <ng-container *ngIf="tabActiva === 'historial'">
+    <div class="historial-card">
+
+      <div class="historial-header">
+        <span class="historial-icono">📋</span>
+        <div>
+          <h3 class="historial-titulo">Historial de cambios en el sistema</h3>
+          <p class="historial-sub">Registro de agregaciones, modificaciones y eliminaciones de Trabajadores, Reservaciones, Platillos y Pedidos</p>
+        </div>
+      </div>
+
+      <div class="filtros-historial">
+        <span class="filtros-label">FILTRAR:</span>
+        <button class="filtro-chip" [class.activo]="filtroActivo === 'Todos'" (click)="cambiarFiltro('Todos')">Todos</button>
+        <button class="filtro-chip" [class.activo]="filtroActivo === 'Agregación'" (click)="cambiarFiltro('Agregación')">Agregación</button>
+        <button class="filtro-chip" [class.activo]="filtroActivo === 'Modificación'" (click)="cambiarFiltro('Modificación')">Modificación</button>
+        <button class="filtro-chip" [class.activo]="filtroActivo === 'Eliminación'" (click)="cambiarFiltro('Eliminación')">Eliminación</button>
+      </div>
+
+      <div class="periodo-grupo" *ngFor="let grupo of historialAgrupado">
+        <div class="periodo-header">
+          <span class="periodo-label">{{ grupo.periodo }}</span>
+          <div class="periodo-linea"></div>
+          <span class="periodo-count">{{ grupo.items.length }} cambio{{ grupo.items.length !== 1 ? 's' : '' }}</span>
+        </div>
+
+        <div class="cambio-item" *ngFor="let item of grupo.items">
+          <span class="cambio-icono">📄</span>
+          <div class="cambio-info">
+            <span class="cambio-desc">{{ getDescripcionCambio(item) }}</span>
+            <div class="cambio-meta">
+              <span>👤 {{ item.trabajador }}</span>
+              <span>🕐 {{ item.Fecha | date:'yyyy-MM-dd HH:mm' }}</span>
+            </div>
+          </div>
+          <span class="badge" [ngClass]="getTipoClass(item.Accion)">{{ getTipoLabel(item.Accion) }}</span>
+        </div>
+      </div>
+
+      <p *ngIf="historialAgrupado.length === 0" style="color:#8B5C42; padding: 20px;">No hay cambios registrados.</p>
+
+    </div>
+  </ng-container>
+
+</main>

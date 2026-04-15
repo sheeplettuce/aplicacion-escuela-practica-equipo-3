@@ -1,0 +1,7 @@
+<div
+  class="line"
+  [ngClass]="[
+    'line--' + tone,
+    spacing === 'tight-before-total' ? 'line--mb-tight' : tone === 'section' ? 'line--mb-section' : 'line--mb-normal',
+  ]"
+></div>

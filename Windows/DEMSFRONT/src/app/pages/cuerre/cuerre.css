@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+
+.pagina-qr {
+  background-color: #f5ede0;
+  min-height: 100vh;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-content: start;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+  height: 100vh;           /* Altura de toda la ventana */
+  width: 100%;             /* Ancho total disponible */
+  background-color: #f8f9fa; /* Un gris muy tenue para resaltar el blanco del QR */
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .pagina-cocina {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}

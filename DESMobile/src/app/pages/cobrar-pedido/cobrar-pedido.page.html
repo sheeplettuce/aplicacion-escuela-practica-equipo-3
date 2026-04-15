@@ -1,0 +1,80 @@
+<app-page-header-cream
+  [title]="'Cobrar ' + pedido?.folio"
+  imageSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/3NWzJkfAGi/01bc3aoa_expires_30_days.png"
+/>
+
+<ion-content [fullscreen]="true" class="cobrar-pedido-page-content">
+  <app-page-body>
+    <div class="page-column">
+
+      <app-elevated-panel preset="cobrar-ticket">
+
+        <app-ticket-brand-header
+          brand="DEMS! LOMA BONITA"
+          [subheading]="pedido?.mesa + ' - ' + pedido?.folio"
+        />
+
+        <ng-container *ngFor="let item of pedido?.items">
+
+          <app-ticket-line-row
+            [description]="getDescripcion(item)"
+            [price]="'$' + item.PrecioUnitario + ' - $' + (item.Cantidad*item.PrecioUnitario)"
+            [flexDescription]="true"
+          />
+
+          <app-divider-line />
+
+        </ng-container>
+
+        <app-divider-line tone="soft" spacing="tight-before-total" />
+        <app-divider-line tone="emphasis" spacing="tight-before-total" />
+
+        <app-ticket-total-row
+          label="Total"
+          [amount]="'$' + total"
+        />
+
+      </app-elevated-panel>
+
+      <div class="actions">
+        <app-primary-button
+          label="Imprimir ticket"
+          widthMode="centered"
+          padding="wide"
+          labelSize="body"
+          (pressed)="imprimirTicket()"
+        />
+
+        <app-primary-button
+          label="Dividir por pago"
+          widthMode="centered"
+          padding="wide"
+          labelSize="body"
+          (pressed)="dividirPorPago()"
+        />
+
+        <app-primary-button
+          label="Enviar ticket al correo"
+          widthMode="centered"
+          padding="wide"
+          labelSize="body"
+          (pressed)="ModalTicket()"
+        />
+
+        <app-primary-button
+          label="Cobrado - Cerrar pedido"
+          widthMode="centered"
+          padding="compact"
+          labelSize="body"
+          (pressed)="cobrar()"
+        />
+      </div>
+
+    </div>
+  </app-page-body>
+
+  <app-bottom-nav
+    pedidosIconSrc="assets/NewPedido.png"
+    reservacionesIconSrc="assets/Reserva.png"
+  />
+</ion-content>

@@ -1,0 +1,14 @@
+<div class="card" [class.card--last]="last">
+  <div class="row">
+    <span class="desk">{{ deskLabel }}</span>
+    <span class="amount">{{ amount }}</span>
+  </div>
+  <div class="row">
+    <span class="detail">{{ detail }}</span>
+    @if (status === 'Proceso') {
+      <app-status-badge variant="pending" label="Pendiente" />
+    } @else {
+      <app-status-badge variant="ready" label="Listo" />
+    }
+  </div>
+</div>

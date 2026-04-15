@@ -1,0 +1,49 @@
+.btn {
+  display: flex;
+  align-items: center;
+  background: #b22222;
+  border: 1px solid #ffffff;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: #ffffff;
+}
+
+.btn--square {
+  flex-shrink: 0;
+  border-radius: 8px;
+  padding: 4px 3px;
+  gap: 1px;
+}
+
+.btn--pill {
+  flex-shrink: 0;
+  border-radius: 20px;
+  padding: 4px 3px;
+}
+
+.btn--pill-wide {
+  flex: 1 1 100%;
+  min-width: min(100%, 140px);
+  justify-content: center;
+  border-radius: 20px;
+  padding: 4px 6px;
+  box-sizing: border-box;
+}
+
+.ico {
+  width: 13px;
+  height: 12px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.lbl {
+  font-size: max(9px, 2.5vw);
+}
+
+@media (max-width: 360px) {
+  .btn--pill-wide {
+    flex: 1 1 100%;
+  }
+}

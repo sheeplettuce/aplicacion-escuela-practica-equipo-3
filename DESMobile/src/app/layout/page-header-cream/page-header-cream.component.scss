@@ -1,0 +1,42 @@
+/* host igual */
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 🔥 reemplazo de .header */
+.header-toolbar {
+  --background: #fffcf8e3;
+  --padding-start: clamp(12px, 4vw, 20px);
+  --padding-end: clamp(12px, 4vw, 20px);
+  --min-height: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: clamp(12px, 3vw, 19px);
+}
+
+/* título */
+.title {
+  color: #7a5c42;
+  font-size: clamp(1.25rem, 5.5vw, 1.875rem);
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* imagen */
+.header-image {
+  border-radius: 10px;
+  width: min(64px, 18vw);
+  aspect-ratio: 64 / 50;
+  object-fit: contain;
+}
+
+ion-title {
+  text-align: left;
+}

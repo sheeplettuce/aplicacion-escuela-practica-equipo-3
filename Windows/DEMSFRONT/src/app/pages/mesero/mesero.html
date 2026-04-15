@@ -1,0 +1,16 @@
+<app-header title="Mesero"></app-header>
+
+<main class="pagina-mesero">
+  <section class="saludo">
+    <h1 class="saludo-titulo">Bienvenido, {{ userName }}</h1>
+    <p class="saludo-subtitulo">Gestiona tus pedidos y atenciones</p>
+  </section>
+
+  <div class="acciones-rapidas">
+    <button class="btn btn-primary">+ Nuevo Pedido</button>
+    <button class="btn btn-secondary">Ver Pedidos Activos</button>
+    <button class="btn btn-secondary">Reservaciones</button>
+  </div>
+
+  <button (click)="logout()" class="btn-logout">Cerrar Sesión</button>
+</main>

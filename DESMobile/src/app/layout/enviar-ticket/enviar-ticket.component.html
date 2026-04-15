@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true" class="enviar-ticket-page-content">
+  <app-page-body>
+    <div class="page-stack">
+      <div class="header-row">
+        <span class="title">Enviar ticket por correo</span>
+      </div>
+
+      <div class="description-row">
+        <span class="description">Ingresar correo al que se enviará el ticket</span>
+      </div>
+
+      <div class="view4">
+        <ion-item lines="none" class="email-input-item">
+          <ion-input placeholder="correo@ejemplo.com" [(ngModel)]="email" type="email"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="actions-row">
+        <ion-button fill="outline" class="cancel-button" (click)="onCancel()">Cancelar</ion-button>
+        <ion-button expand="block" class="send-button" (click)="onSend()">Enviar</ion-button>
+      </div>
+    </div>
+  </app-page-body>
+</ion-content>

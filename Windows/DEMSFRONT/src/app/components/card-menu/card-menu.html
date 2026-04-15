@@ -1,0 +1,25 @@
+<div class="platillo-card">
+
+  <!-- Imagen del platillo -->
+  <img [src]="imagen" [alt]="nombre" class="platillo-imagen" />
+
+  <!-- Contenido de la tarjeta -->
+  <div class="platillo-contenido">
+
+    <!-- Nombre y precio -->
+    <div class="platillo-header">
+      <span class="platillo-nombre">{{ nombre }}</span>
+      <span class="platillo-precio">${{ precio }}</span>
+    </div>
+
+    <!-- Descripción -->
+    <p class="platillo-descripcion">{{ descripcion }}</p>
+
+    <!-- Botones -->
+    <div class="platillo-acciones">
+      <button class="btn-editar" (click)="editar.emit()">Editar</button>
+      <button class="btn-eliminar" (click)="eliminar.emit()">Eliminar</button>
+    </div>
+
+  </div>
+</div>

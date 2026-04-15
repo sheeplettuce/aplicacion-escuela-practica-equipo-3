@@ -1,0 +1,41 @@
+.line {
+  height: 1px;
+  align-self: stretch;
+  margin-left: clamp(8px, 3vw, 13px);
+  margin-right: clamp(8px, 3vw, 13px);
+  box-sizing: border-box;
+}
+
+.line--soft {
+  background: #d9c4a040;
+}
+
+.line--emphasis {
+  background: #000000;
+  margin-left: clamp(6px, 2vw, 8px);
+  margin-right: clamp(6px, 2vw, 8px);
+}
+
+.line--section {
+  height: 2px;
+  background: #ede1cd;
+  margin-left: var(--page-pad, 15px);
+  margin-right: var(--page-pad, 15px);
+}
+
+.line--mb-normal {
+  margin-bottom: 12px;
+}
+
+.line--mb-tight {
+  margin-bottom: 14px;
+}
+
+.line--emphasis.line--mb-tight,
+.line--emphasis.line--mb-normal {
+  margin-bottom: 10px;
+}
+
+.line--mb-section {
+  margin-bottom: clamp(16px, 4vw, 29px);
+}

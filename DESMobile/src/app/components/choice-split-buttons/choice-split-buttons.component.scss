@@ -1,0 +1,45 @@
+.row {
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-left: clamp(8px, 3vw, 18px);
+  margin-right: clamp(8px, 3vw, 18px);
+  box-sizing: border-box;
+}
+
+.btn {
+  flex: 1 1 auto;
+  min-width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+}
+
+.btn--primary-choice {
+  background: #faefeb;
+  border: 1px solid #b22222;
+  padding: 7px clamp(12px, 4vw, 52px);
+}
+
+.btn--neutral-choice {
+  background: #f5efe6;
+  border: 1px solid #d9c4a0;
+  padding: 7px clamp(12px, 4vw, 23px);
+}
+
+.label-strong {
+  color: #8b1a1a;
+  font-size: clamp(0.875rem, 3.5vw, 1rem);
+}
+
+.label-muted {
+  color: #7a5c42;
+  font-size: clamp(0.875rem, 3.5vw, 1rem);
+}

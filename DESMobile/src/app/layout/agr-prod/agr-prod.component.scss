@@ -1,0 +1,62 @@
+.handle {
+  width: 40px;
+  height: 5px;
+  background: #d9c4a0;
+  border-radius: 10px;
+  margin: 10px auto;
+}
+
+.list {
+  padding: 10px 16px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  border-radius: 8px;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.nombre {
+  font-size: 16px;
+  color: #4a2c1a;
+}
+
+.tipo {
+  font-size: 12px;
+  color: #82664d;
+}
+
+.precio {
+  font-weight: bold;
+  color: #8b1a1a;
+}
+
+ion-textarea {
+  width: 100%;
+  min-height: 80px;
+  color: #000;
+}
+
+.input-box {
+  background: #F5EFE6;
+  border: 1px solid #D9C4A0;
+  border-radius: 10px;
+  padding: 10px;
+
+  position: relative;
+  z-index: 1; // 👈 clave
+}

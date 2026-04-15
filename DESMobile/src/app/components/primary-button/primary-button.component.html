@@ -1,0 +1,8 @@
+<button
+  type="button"
+  class="btn"
+  [ngClass]="['btn--' + widthMode, 'btn--pad-' + padding, 'btn--text-' + labelSize]"
+  (click)="onClick()"
+>
+  <span class="label">{{ label }}</span>
+</button>

@@ -1,0 +1,46 @@
+<app-page-header-cream
+  title="Editar pedido"
+  imageSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/3NWzJkfAGi/n9pdgbrf_expires_30_days.png"
+/>
+
+<ion-content [fullscreen]="true" class="editar-pedidos-page-content">
+  <app-page-body>
+    <div class="page-stack">
+      <section class="block">
+        <span class="hint">Seleccionar un pedido para editar</span>
+
+        <ng-container *ngFor="let mesa of (mesas | keyvalue)">
+          <span class="mesa-label">MESA {{ mesa.key }}</span>
+          <app-pedido-select-row
+            *ngFor="let pedido of mesa.value"
+            [code]="'P-' + pedido.folio"
+            [subtitle]="pedido.items.length + ' platillos - Local'"
+            [status]="'pending'"
+            spacing="list"
+            trailingIconSrc="assets/flecha.png"
+            (click)="editarPedido(pedido)"
+          />
+        </ng-container>
+      </section>
+
+      <section class="block block--counter" *ngIf="mostrador.length > 0">
+        <span class="mesa-label mesa-label--counter">MOSTRADOR</span>
+        <app-pedido-select-row
+          *ngFor="let pedido of mostrador"
+          [code]="'P-' + pedido.folio"
+          [subtitle]="pedido.items.length + ' platillos - Para recoger'"
+          [status]="'pending'"
+          spacing="list"
+          trailingIconSrc="assets/flecha.png"
+          (click)="editarPedido(pedido)"
+        />
+      </section>
+
+      <app-divider-line tone="section" />
+    </div>
+  </app-page-body>
+  <app-bottom-nav
+    pedidosIconSrc="assets/NewPedido.png"
+    reservacionesIconSrc="assets/Reserva.png"
+    />
+</ion-content>

@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true" class="dividir-pagos-page-content">
+  <app-page-body>
+    <div class="page-stack">
+
+      <div class="header-row">
+        <span class="title">Dividir por pagos</span>
+      </div>
+
+      <div class="total-row">
+        <span class="total-label">Total del pedido</span>
+        <span class="total-value">${{ total }}</span>
+      </div>
+
+      <div class="payment-panel">
+        >
+        <div *ngFor="let pago of pagos; let i = index" class="payment-entry">
+
+          <ion-item lines="none" class="payment-method-item">
+            <ion-label>Pago {{ i + 1 }}</ion-label>
+
+            <ion-select [(ngModel)]="pago.metodo" interface="popover">
+              <ion-select-option value="tarjeta">Tarjeta</ion-select-option>
+              <ion-select-option value="transferencia">Transferencia</ion-select-option>
+              <ion-select-option value="efectivo">Efectivo</ion-select-option>
+            </ion-select>
+
+          </ion-item>
+
+          <ion-item lines="none" class="payment-amount-item">
+            <ion-input type="number" placeholder="Monto $" [(ngModel)]="pago.monto" (ionBlur)="onMontoChange(i)">
+            </ion-input>
+          </ion-item>
+
+        </div>
+
+        <button type="button" class="add-payment" (click)="agregarPago()"
+          [disabled]="hayPagosIncompletos || restante <= 0">
+          <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/S4topjr39u/6hm1uhud_expires_30_days.png"
+            alt="Agregar forma de pago" class="add-payment-icon" />
+          <span>Agregar forma de pago</span>
+        </button>
+
+        <div class="remaining">
+          <span *ngIf="restante > 0">Falta: ${{ restante }}</span>
+          <span *ngIf="restante === 0">✔ Pagado completo</span>
+          <span *ngIf="restante < 0">Cambio: ${{ restante * -1 }}</span>
+        </div>
+
+      </div>
+
+      <ion-button expand="block" class="confirm-button" (click)="onConfirmPayments()">
+        Confirmar pagos
+      </ion-button>
+
+    </div>
+  </app-page-body>
+</ion-content>

@@ -1,0 +1,115 @@
+.pagina-trabajadores {
+  min-height: 100vh;
+  background-color: #F5EFE6;
+  padding-bottom: 60px;
+  border: 1px solid #EDE0CC;
+  box-sizing: border-box;
+}
+
+.btn-nuevo {
+  display: flex;
+  align-items: center;
+  background: #B22222;
+  color: white;
+  font-size: 15px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-top: 16px;
+  margin-right: 20px;
+}
+
+.btn-nuevo:hover { background: #8b1a1a; }
+
+.contadores {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.contador-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFCF8;
+  border: 1px solid #EDE0CCC4;
+  border-radius: 16px;
+  padding: 40px 80px;
+  box-shadow: 1px 4px 4px #00000040;
+  gap: 12px;
+}
+
+.contador-num {
+  color: #8B1A1A;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.contador-label {
+  color: #8B1A1A;
+  font-size: 24px;
+}
+
+.tabla-contenedor {
+  background: #FFFCF8;
+  border-radius: 16px;
+  border: 1px solid #E1CBA6B0;
+  margin: 0 60px;
+  padding: 40px;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla th {
+  text-align: left;
+  color: #7A5C57;
+  font-size: 18px;
+  padding: 12px 16px;
+  background: #F5EFE6;
+}
+
+.tabla td {
+  padding: 14px 16px;
+  font-size: 16px;
+  color: #000;
+  background: white;
+  border-bottom: 1px solid #F5EFE6;
+}
+
+.acciones-td {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-editar {
+  background: rgba(64, 38, 22, 0.85);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 20px;
+  border: 1px solid #412717;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-editar:hover { background: #4A2C1A; }
+
+.btn-eliminar {
+  background: #AA0101;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-eliminar:hover { background: #8b0000; }

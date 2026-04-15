@@ -1,0 +1,28 @@
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="bottom-toolbar">
+<div class="nav-container">
+
+  <a
+  class="nav-item"
+  [routerLink]="pedidosLink"
+  routerLinkActive="nav-item--active"
+  [routerLinkActiveOptions]="{ exact: pedidosLink === '/home' }"
+  >
+  <div class="nav-item__icon-wrap">
+    <img [src]="pedidosIconSrc" class="nav-item__icon" />
+    <span class="nav-item__label nav-item__label--badge">Pedidos</span>
+  </div>
+</a>
+
+<a
+class="nav-item"
+[routerLink]="reservacionesLink"
+      routerLinkActive="nav-item--active"
+    >
+      <img [src]="reservacionesIconSrc" class="nav-item__icon" />
+      <span class="nav-item__label">Reservaciones</span>
+    </a>
+
+  </div>
+  </ion-toolbar>
+</ion-footer>

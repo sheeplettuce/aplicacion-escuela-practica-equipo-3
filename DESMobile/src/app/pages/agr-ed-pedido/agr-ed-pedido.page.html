@@ -1,0 +1,69 @@
+<app-page-header-cream
+  title="Nuevo pedido"
+  imageSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/3NWzJkfAGi/swq88tag_expires_30_days.png"
+/>
+
+<ion-content [fullscreen]="true" class="agr-ed-pedido-page-content">
+  <app-page-body>
+    <div class="page-column">
+      <app-elevated-panel preset="agr-order-type">
+        <span class="field-label">Tipo de pedido</span>
+        <div class="centered-buttons">
+          <app-choice-split-buttons
+            [selected]="orderType"
+            (primaryClick)="onOrderTypeChange('local')"
+            (secondaryClick)="onOrderTypeChange('pickup')"
+          />
+        </div>
+      </app-elevated-panel>
+
+      <app-elevated-panel preset="agr-mesa" *ngIf="orderType === 'local'">
+        <span class="field-label field-label--mesa">NÚMERO DE MESA</span>
+        <app-mesa-input-row
+          [value]="noMesa"
+          placeholder="Ej. Mesa 3"
+          trailingIconSrc="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/3NWzJkfAGi/oebt75zs_expires_30_days.png"
+          (mesaChange)="onMesaChange($event)"
+        />
+      </app-elevated-panel>
+
+      <app-elevated-panel preset="agr-dishes">
+        <div class="dish-toolbar">
+          <span class="field-label field-label--plain">PLATILLOS</span>
+          <app-toolbar-icon-button
+            shape="square"
+            iconSrc="assets/pedidosAssets/agregar.png"
+            label="Agregar"
+            (pressed)="abrirPlatillos()"
+          />
+        </div>
+
+        <app-dish-edit-row
+          *ngFor="let dish of dishes; let i = index"
+          [name]="dish.name"
+          [quantity]="dish.quantity.toString()"
+          [nameWidth]="i === 0 ? 'full' : i === 1 ? 'natural' : 'wide'"
+          [noteShape]="i === 0 || i === 2 ? 'pill-wide' : 'pill'"
+          [leadingFlexSpacer]="i === 1"
+          minusIconSrc="assets/pedidosAssets/minus.png"
+          plusIconSrc="assets/pedidosAssets/plus.png"
+          noteIconSrc="assets/pedidosAssets/agregar.png"
+          (noteClick)="abrirNota(i)"
+          (minusClick)="onDishMinus(i)"
+          (plusClick)="onDishPlus(i)"
+        />
+      </app-elevated-panel>
+
+      <app-divider-line tone="section" />
+
+      <app-primary-button label="Guardar pedido" widthMode="centered" (pressed)="guardarPedido()" />
+      <app-primary-button *ngIf="this.idPedido" label="Cancelar pedido" widthMode="centered" (pressed)="cancelarPedido()" />
+    </div>
+
+  </app-page-body>
+</ion-content>
+
+<app-bottom-nav
+  pedidosIconSrc="assets/NewPedido.png"
+  reservacionesIconSrc="assets/Reserva.png"
+/>

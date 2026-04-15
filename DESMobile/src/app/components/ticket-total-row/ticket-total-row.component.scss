@@ -1,0 +1,19 @@
+.row {
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: clamp(24px, 6vw, 43px);
+  margin-left: clamp(8px, 3vw, 12px);
+  margin-right: clamp(8px, 3vw, 12px);
+  box-sizing: border-box;
+}
+
+.label,
+.amount {
+  color: #000000;
+  font-size: clamp(1rem, 4vw, 1.125rem);
+  font-weight: bold;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "DESMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

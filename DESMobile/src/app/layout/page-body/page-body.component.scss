@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.contain {
+  display: block;
+  width: 100%;
+}
+
+.scroll-view {
+  display: block;
+  width: 100%;
+  background: #f5efe6;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.scroll-view--default {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: clamp(80px, max(15vh, 90px), 140px);
+}
+
+.scroll-view--home {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: clamp(100px, max(20vh, 110px), 160px);
+}
+
+.scroll-view--reservaciones {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: clamp(90px, max(18vh, 100px), 150px);
+}

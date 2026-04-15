@@ -1,0 +1,57 @@
+<app-header title="Trabajadores"></app-header>
+
+<main class="pagina-registro">
+  <div class="formulario-card">
+
+    <h1 class="form-titulo">
+      {{ esEdicion ? 'Modificar un usuario' : 'Registro de usuario' }}
+    </h1>
+
+    <label class="form-label">Nombre completo</label>
+    <input
+      type="text"
+      placeholder="Nombre y apellido"
+      class="form-input"
+      [(ngModel)]="form.Nombre"
+    />
+
+    <div class="form-fila-labels">
+      <span class="form-label">Contraseña {{ esEdicion ? '(vacío = no cambiar)' : '' }}</span>
+      <span class="form-label">Rol</span>
+    </div>
+
+    <div class="form-fila-inputs">
+
+      <input
+        type="password"
+        placeholder="••••••••••••"
+        class="form-input"
+        [(ngModel)]="form.Contra"
+      />
+
+      <div class="dropdown-contenedor">
+        <button class="dropdown-btn" (click)="toggleDropdown($event)">
+          <span>{{ rolSeleccionado?.nombre || 'Selecciona un rol' }}</span>
+          <span class="dropdown-flecha">▼</span>
+        </button>
+        <div class="dropdown-menu" *ngIf="dropdownAbierto">
+          <div
+            class="dropdown-opcion"
+            *ngFor="let rol of roles"
+            (click)="seleccionarRol(rol)">
+            {{ rol.nombre }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-acciones">
+      <button class="btn-guardar" (click)="guardar()">
+        {{ esEdicion ? 'Guardar cambio' : 'Guardar' }}
+      </button>
+      <button class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+    </div>
+
+  </div>
+</main>

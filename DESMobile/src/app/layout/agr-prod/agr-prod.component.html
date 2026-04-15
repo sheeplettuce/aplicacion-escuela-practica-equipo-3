@@ -1,0 +1,24 @@
+﻿<ion-header class="ion-no-border">
+	<div class="handle"></div>
+</ion-header>
+
+<ion-content>
+	<div class="list">
+
+		@for (item of platillos; track item) {
+			<div class="item" (click)="seleccionar(item)">
+				<img [src]="item.img" />
+
+				<div class="info">
+					<span class="nombre">{{ item.nombre }}</span>
+					<span class="tipo">{{ item.tipo }}</span>
+				</div>
+
+				<span class="precio">${{ item.precio }}</span>
+			</div>
+		}
+	</div>
+	<ion-button expand="block" (click)="cerrar()">
+		Cerrar
+	</ion-button>
+</ion-content>

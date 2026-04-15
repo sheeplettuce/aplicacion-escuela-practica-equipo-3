@@ -1,0 +1,38 @@
+<div
+  class="card"
+  [ngClass]="[
+    'card--' + variant,
+    spacing === 'before-footer' ? 'card--space-before-footer' : 'card--space-' + spacing,
+  ]"
+>
+  <div class="date" [class.date--baseline]="variant === 'stacked-phone'">
+    <span class="date-primary">{{ datePrimary }}</span>
+    <br />
+    <span class="date-secondary">{{ dateSecondary }}</span>
+  </div>
+
+  @if (variant === 'inline-meta') {
+    <div class="body">
+      <span class="title">{{ title }}</span>
+      <div class="meta-pair">
+        <span class="muted">{{ metaLine1 }}</span>
+        <span class="muted">{{ metaLine2 }}</span>
+      </div>
+    </div>
+  } @else {
+    <div class="body body--stack">
+      <span class="title">{{ title }}</span>
+      <span class="muted person-line">{{ personSummary }}</span>
+    </div>
+    <span class="phone-block muted">{{ phone }}</span>
+  }
+
+  <div class="grow"></div>
+
+  <img
+    [src]="actionIconSrc"
+    alt=""
+    class="action-icon"
+    [class.action-icon--offset]="variant === 'stacked-phone'"
+  />
+</div>

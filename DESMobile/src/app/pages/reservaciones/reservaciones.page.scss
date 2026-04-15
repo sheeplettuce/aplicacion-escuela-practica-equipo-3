@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.reservaciones-page-content {
+  --background: #ffffff;
+  --padding-bottom: calc(94px + env(safe-area-inset-bottom));
+}

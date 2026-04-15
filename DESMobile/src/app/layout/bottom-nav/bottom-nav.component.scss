@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.bottom-toolbar {
+  --background: #fffcf8;
+  --padding-start: 0;
+  --padding-end: 0;
+  --min-height: auto;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.bottom-toolbar::part(native) {
+  padding: 0;
+}
+
+/* ← este div es el que controla el layout */
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: clamp(10px, 3vw, 14px) clamp(12px, 4vw, 20px);
+  box-sizing: border-box;
+}
+
+@supports (padding: max(0px)) {
+  .nav-container {
+    padding-bottom: max(env(safe-area-inset-bottom), 10px);
+  }
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-item__icon-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-item__icon {
+  width: min(45px, 12vw);
+}
+
+.nav-item__label {
+  color: #b2224b;
+  font-size: clamp(0.8rem, 3.5vw, 0.9375rem);
+}
+
+.nav-item--active .nav-item__label {
+  font-weight: 600;
+}

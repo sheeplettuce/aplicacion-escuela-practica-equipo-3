@@ -1,0 +1,24 @@
+<div class="row">
+  <span
+    class="name"
+    [class.name--full]="nameWidth === 'full'"
+    [class.name--wide]="nameWidth === 'wide'"
+    [class.name--natural]="nameWidth === 'natural'"
+    >{{ name }}</span>
+  @if (leadingFlexSpacer) {
+    <div class="grow"></div>
+  }
+  <div class="btn-pad">
+    <img [src]="minusIconSrc" alt="" class="mini" (click)="minusClick.emit()" />
+  </div>
+  <span class="qty">{{ quantity }}</span>
+  <div class="btn-pad btn-pad--wide">
+    <img [src]="plusIconSrc" alt="" class="mini" (click)="plusClick.emit()" />
+  </div>
+  <app-toolbar-icon-button
+    [iconSrc]="noteIconSrc"
+    label="Nota especial"
+    [shape]="noteShape"
+    (pressed)="noteClick.emit()"
+  />
+</div>

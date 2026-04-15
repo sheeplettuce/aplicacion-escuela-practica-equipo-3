@@ -1,0 +1,10 @@
+<button
+  class="modulo-card"
+  [routerLink]="ruta"
+  [style.width]="ancho"
+  [style.padding]="padding"
+>
+  <img [src]="icono" [alt]="nombre" class="modulo-icono" />
+  <span class="modulo-nombre">{{ nombre }}</span>
+  <span class="modulo-descripcion">{{ descripcion }}</span>
+</button>

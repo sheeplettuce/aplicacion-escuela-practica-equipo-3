@@ -1,0 +1,30 @@
+<app-header title="Menú"></app-header>
+
+<main class="pagina-menu">
+
+  <button class="btn-nuevo-platillo" (click)="irARegistro()">+ Nuevo platillo</button>
+
+  <div *ngIf="isLoading" class="loading">Cargando menú...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <ng-container *ngIf="!isLoading && !errorMessage">
+    <div class="platillos-grid" *ngIf="categories.length > 0; else emptyTemplate">
+      <ng-container *ngFor="let categoria of categories">
+        <app-card
+          *ngFor="let platillo of categoria.platillos"
+          [imagen]="getImagenCategoria(categoria.nombre)"
+          [nombre]="platillo.nombre"
+          [precio]="platillo.precio"
+          [descripcion]="platillo.descripcion"
+          (editar)="onEditar(platillo)"
+          (eliminar)="onEliminar(platillo)">
+        </app-card>
+      </ng-container>
+    </div>
+
+    <ng-template #emptyTemplate>
+      <p class="texto-vacio">No hay platillos disponibles.</p>
+    </ng-template>
+  </ng-container>
+
+</main>

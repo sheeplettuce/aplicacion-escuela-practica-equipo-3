@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  height: auto;       /* es para controlar el alto */
+  color: #000000;
+  background: #F5EFE6;
+  font-size: 20px;
+  padding: 17px 34px; /* padding vertical del botón */
+  border-radius: 20px;
+  border: 1px solid #D9C4A0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 25px;
+  border: 1px solid #d9ccb9;
+  background-color: #fdf8f1;
+  box-sizing: border-box;
+  color: #000000;
+}
+
+/* Solo agregamos espacio extra si tiene el botón */
+.custom-input.with-icon {
+  padding-right: 45px;
+}
+
+.toggle-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #8B5C42; /* Color acorde a tu paleta café/crema */
+  cursor: pointer;
+  display: flex;
+}

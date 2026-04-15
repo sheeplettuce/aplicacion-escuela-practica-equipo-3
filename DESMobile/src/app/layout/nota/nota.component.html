@@ -1,0 +1,33 @@
+<ion-header class="ion-no-border">
+  <div class="handle"></div>
+</ion-header>
+
+<ion-content class="content">
+  <div class="container">
+    <h2 class="title">Nota especial</h2>
+    <div class="input-box">
+      <ion-item lines="none" class="ion-no-padding">
+        <ion-textarea
+          [(ngModel)]="nota"
+          placeholder="Ej. sin cebolla, sin crema..."
+          [autoGrow]="true"
+          rows="4"
+          (ionInput)="onNotaInput($event)"
+          (ionFocus)="onNotaFocus()"
+          (ionBlur)="onNotaBlur()">
+        </ion-textarea>
+      </ion-item>
+    </div>
+  </div>
+  <div class="buttons">
+
+    <ion-button class="button-cancel" fill="outline" expand="block" (click)="cancelar()">
+      Cancelar
+    </ion-button>
+
+    <ion-button class="button-save" fill="solid" expand="block" (click)="guardar()">
+      Guardar nota
+    </ion-button>
+
+  </div>
+</ion-content>

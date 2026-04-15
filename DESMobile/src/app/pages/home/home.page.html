@@ -1,0 +1,29 @@
+<ion-page>
+  <app-page-header-home title="Pedidos" [subtitle]="'Mesero: ' + trabajador" [badgeText]="(pedidosReady.length + pedidosPending.length) + ' Activos'" />
+
+  <ion-content [fullscreen]="true" class="home-page-content">
+    <app-page-body>
+      <div class="home-actions">
+        <div class="home-actions__tiles">
+          <app-quick-action-tile kind="hero" imageSrc="assets/NewPedido.png" label="Nuevo pedido"
+            route="/agr-ed-pedido" />
+          <app-quick-action-tile kind="standard" imageSrc="assets/PutPedido.png" label="Editar pedido"
+            route="/editar-pedidos" />
+          <app-quick-action-tile kind="compact" imageSrc="assets/Cobro.png" label="Cobrar pedido"
+            route="/pedidos-acobrar" />
+          <app-quick-action-tile kind="compact" imageSrc="assets/Reserva.png" label="Reservaciones"
+            route="/reservaciones" />
+        </div>
+      </div>
+
+      <h2 class="home-section-title">Pedidos activos</h2>
+      <app-order-active-card *ngFor="let pedido of pedidosReady"
+        [deskLabel]="'P-' + pedido.folio + ' ' + pedido.mesa" [amount]="'$' + pedido.total"
+        [detail]="pedido.items.length + ' platillos'" [status]="pedido.estado" />
+
+      <app-order-active-card *ngFor="let pedido of pedidosPending"
+        [deskLabel]="'P-' + pedido.folio + ' ' + pedido.mesa" [amount]="'$' + pedido.total"
+        [detail]="pedido.items.length + ' platillos'" [status]="pedido.estado" />
+    </app-page-body>
+  </ion-content>
+</ion-page>

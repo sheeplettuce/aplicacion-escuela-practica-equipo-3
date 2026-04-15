@@ -1,0 +1,9 @@
+<button
+  type="button"
+  class="btn"
+  [ngClass]="'btn--' + shape"
+  (click)="pressed.emit()"
+>
+  <img [src]="iconSrc" [alt]="iconAlt" class="ico" />
+  <span class="lbl">{{ label }}</span>
+</button>

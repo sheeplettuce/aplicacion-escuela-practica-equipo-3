@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="header-left">
+    <img src="assets/cubiertos.png" class="header-logo" />
+    <span class="header-brand">DEMS!</span>
+  </div>
+
+  <nav class="header-nav">
+    <a *ngIf="rol === 'Administrador'" routerLink="/inicio" routerLinkActive="active" class="nav-item">Inicio</a>
+    <a *ngIf="rol === 'Administrador'" routerLink="/menu" routerLinkActive="active" class="nav-item">Menú</a>
+    <a *ngIf="rol === 'Administrador'" routerLink="/reservaciones" routerLinkActive="active" class="nav-item">Reservaciones</a>
+    <a *ngIf="rol === 'Administrador'" routerLink="/cocina" routerLinkActive="active" class="nav-item">Cocina</a>
+    <a *ngIf="rol === 'Administrador'" routerLink="/reportes" routerLinkActive="active" class="nav-item">Reportes</a>
+    <a *ngIf="rol === 'Administrador'" routerLink="/trabajadores" routerLinkActive="active" class="nav-item">Trabajadores</a>
+    <a *ngIf="rol === 'Administrador'" routerLink="/cuerre" routerLinkActive="active" class="nav-item">QR</a>
+  </nav>
+
+  <div class="header-right">
+    <span class="header-title">{{ title }}</span>
+    <button class="logout-btn" (click)="logout()">
+      <span class="material-icons">Salir</span>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,24 @@
+<div class="row">
+  <button
+    type="button"
+    class="btn"
+    [ngClass]="{
+      'btn--primary-choice': selected === 'local',
+      'btn--neutral-choice': selected !== 'local'
+    }"
+    (click)="selectLocal()"
+  >
+    <span [ngClass]="{ 'label-strong': selected === 'local', 'label-muted': selected !== 'local' }">Local</span>
+  </button>
+  <button
+    type="button"
+    class="btn"
+    [ngClass]="{
+      'btn--primary-choice': selected === 'pickup',
+      'btn--neutral-choice': selected !== 'pickup'
+    }"
+    (click)="selectPickup()"
+  >
+    <span [ngClass]="{ 'label-strong': selected === 'pickup', 'label-muted': selected !== 'pickup' }">Para recoger</span>
+  </button>
+</div>

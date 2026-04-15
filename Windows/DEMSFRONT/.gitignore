@@ -1,0 +1,37 @@
+# Dependencias
+node_modules/
+
+# Build de Angular
+dist/
+.angular/
+
+# Cache Angular
+.cache/
+
+# Logs
+*.log
+
+# Archivos temporales
+tmp/
+temp/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDEs / editores
+.vscode/
+.idea/
+
+# Testing
+coverage/
+
+# Archivos de entorno
+.env
+.env.*
+
+# Configuración local Angular
+src/environments/environment.prod.ts
+
+# Otros
+*.local

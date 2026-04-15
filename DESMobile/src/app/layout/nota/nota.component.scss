@@ -1,0 +1,80 @@
+.handle {
+  width: 60px;
+  height: 5px;
+  background: #D9C4A0;
+  border-radius: 12px;
+  margin: 10px auto;
+}
+
+.content {
+  --background: #FFFCF8;
+}
+
+.container {
+  padding: 16px;
+}
+
+.title {
+  color: #4A2C1A;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.input-box {
+  background: #F5EFE6;
+  border: 1px solid #D9C4A0;
+  border-radius: 16px;
+  padding: 12px;
+  min-height: 160px;
+}
+
+ion-item {
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+  --background: transparent;
+  --border-color: transparent;
+}
+
+ion-textarea {
+  min-height: 120px;
+  width: 100%;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  --placeholder-color: rgba(74, 44, 26, 0.35);
+  --background: transparent;
+  color: #4A2C1A;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+ion-textarea textarea {
+  background: transparent !important;
+  color: #4A2C1A !important;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+}
+
+.button-cancel {
+  --border-radius: 12px;
+  --border-color: #D9C4A0;
+  --color: #4A2C1A;
+  border: 1px solid #D9C4A0;
+  background: #F5EFE6 !important;
+}
+
+.button-save {
+  --border-radius: 12px;
+  --background: #AD1D1D;
+  --color: #FFFFFF;
+  --ripple-color: rgba(255,255,255,0.2);
+}
+
+.button-save::part(native) {
+  font-weight: 600;
+}
+

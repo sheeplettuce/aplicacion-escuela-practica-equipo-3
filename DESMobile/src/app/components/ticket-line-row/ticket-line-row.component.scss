@@ -1,0 +1,36 @@
+.row {
+  align-self: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+  margin-left: clamp(8px, 3vw, 12px);
+  margin-right: clamp(8px, 4vw, 24px);
+  box-sizing: border-box;
+}
+
+.desc,
+.price {
+  color: #000000;
+  font-size: clamp(0.75rem, 3.2vw, 0.8125rem);
+  word-break: break-word;
+}
+
+.desc--grow {
+  flex: 1 1 auto;
+}
+
+.desc {
+  min-width: 0;
+}
+
+.price {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.row--tight-right {
+  margin-right: clamp(8px, 3vw, 11px);
+}
